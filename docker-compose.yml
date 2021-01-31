@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  nestdockerapp:
+    image: nestdockerapp
+    build:
+      context: .
+      target: development
+    volumes: 
+      - .:/usr/src/app
+      #- /usr/src/app/node_modules
+    command: npm run start:dev
+    environment:
+      NODE_ENV: development
+      TZ: "America/Bogota"
+    ports:
+      - 3000:3000
